@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { ArrowRight, Bookmark, Building2, Compass, FileText, Image as ImageIcon, LayoutGrid, MapPin, ShieldCheck, Star, Tag, User } from 'lucide-react'
+import { ArrowRight, Bookmark, Building2, Compass, FileText, Image as ImageIcon, LayoutGrid, MapPin, ShieldCheck, Tag, User } from 'lucide-react'
 import { ContentImage } from '@/components/shared/content-image'
 import { NavbarShell } from '@/components/shared/navbar-shell'
 import { Footer } from '@/components/shared/footer'
@@ -148,11 +148,7 @@ function DirectoryHome({ primaryTask, enabledTasks, listingPosts, classifiedPost
         <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
           <div className="grid gap-10 lg:grid-cols-[1.02fr_0.98fr] lg:items-center">
             <div>
-              <span className={`inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-[10px] font-semibold uppercase tracking-[0.22em] text-white ${tone.badge}`}>
-                <Star className="h-3.5 w-3.5" />
-                Most loved listings
-              </span>
-              <h1 className={`mt-5 max-w-2xl text-4xl font-bold tracking-[-0.05em] sm:text-5xl ${tone.title}`}>
+              <h1 className={`max-w-2xl text-4xl font-bold tracking-[-0.05em] sm:text-5xl ${tone.title}`}>
                 Find standout places and services, compared side by side.
               </h1>
               <p className={`mt-5 max-w-xl text-base leading-8 ${tone.muted}`}>

@@ -1,4 +1,4 @@
-import { Building2, FileText, Image as ImageIcon, Mail, MapPin, Phone, Sparkles, Bookmark } from 'lucide-react'
+import { Building2, FileText, Image as ImageIcon, MapPin, Phone, Sparkles, Bookmark } from 'lucide-react'
 import { NavbarShell } from '@/components/shared/navbar-shell'
 import { Footer } from '@/components/shared/footer'
 import { SITE_CONFIG } from '@/lib/site-config'
@@ -52,7 +52,6 @@ export default function ContactPage() {
   const { recipe } = getFactoryState()
   const productKind = getProductKind(recipe)
   const tone = getTone(productKind)
-  const contactEmail = process.env.NEXT_PUBLIC_CONTACT_EMAIL || 'support@rayantav.com'
   const lanes =
     productKind === 'directory'
       ? [
@@ -63,18 +62,18 @@ export default function ContactPage() {
       : productKind === 'editorial'
         ? [
             { icon: FileText, title: 'Editorial submissions', body: 'Pitch essays, columns, and long-form ideas that fit the publication.' },
-            { icon: Mail, title: 'Newsletter partnerships', body: 'Coordinate sponsorships, collaborations, and issue-level campaigns.' },
+            { icon: Sparkles, title: 'Newsletter partnerships', body: 'Coordinate sponsorships, collaborations, and issue-level campaigns.' },
             { icon: Sparkles, title: 'Contributor support', body: 'Get help with voice, formatting, and publication workflow questions.' },
           ]
         : productKind === 'visual'
           ? [
               { icon: ImageIcon, title: 'Creator collaborations', body: 'Discuss gallery launches, creator features, and visual campaigns.' },
               { icon: Sparkles, title: 'Licensing and use', body: 'Reach out about usage rights, commercial requests, and visual partnerships.' },
-              { icon: Mail, title: 'Media kits', body: 'Request creator decks, editorial support, or visual feature placement.' },
+              { icon: FileText, title: 'Media kits', body: 'Request creator decks, editorial support, or visual feature placement.' },
             ]
           : [
               { icon: Bookmark, title: 'Collection submissions', body: 'Suggest resources, boards, and links that deserve a place in the library.' },
-              { icon: Mail, title: 'Resource partnerships', body: 'Coordinate curation projects, reference pages, and link programs.' },
+              { icon: Bookmark, title: 'Resource partnerships', body: 'Coordinate curation projects, reference pages, and link programs.' },
               { icon: Sparkles, title: 'Curator support', body: 'Need help organizing shelves, collections, or profile-connected boards?' },
             ]
 
@@ -104,6 +103,28 @@ export default function ContactPage() {
           <div className={`rounded-[2rem] p-7 ${tone.panel}`}>
             <h2 className="text-2xl font-bold text-[#4B2E76]">Send a message</h2>
             <p className="mt-1 text-sm text-[#4B2E76]/60">Demo form - connects to your own backend when you wire it in.</p>
+            <form className="mt-6 grid gap-4">
+              <input
+                className="h-12 rounded-xl border border-[#4B2E76]/12 bg-white px-4 text-sm text-[#4B2E76] placeholder:text-[#4B2E76]/40"
+                placeholder="Your name"
+              />
+              <input
+                className="h-12 rounded-xl border border-[#4B2E76]/12 bg-white px-4 text-sm text-[#4B2E76] placeholder:text-[#4B2E76]/40"
+                placeholder="Email address"
+                type="email"
+              />
+              <input
+                className="h-12 rounded-xl border border-[#4B2E76]/12 bg-white px-4 text-sm text-[#4B2E76] placeholder:text-[#4B2E76]/40"
+                placeholder="Topic (e.g. New listing, Partnership)"
+              />
+              <textarea
+                className="min-h-[180px] rounded-2xl border border-[#4B2E76]/12 bg-white px-4 py-3 text-sm text-[#4B2E76] placeholder:text-[#4B2E76]/40"
+                placeholder="Context, links, and the outcome you are hoping for."
+              />
+              <button type="submit" className={`inline-flex h-12 items-center justify-center px-6 text-sm font-semibold ${tone.action}`}>
+                Send message
+              </button>
+            </form>
             <div className="mt-5">
               <a
                 href={`mailto:${contactEmail}`}
