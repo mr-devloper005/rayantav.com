@@ -52,6 +52,7 @@ export default function ContactPage() {
   const { recipe } = getFactoryState()
   const productKind = getProductKind(recipe)
   const tone = getTone(productKind)
+  const contactEmail = `hello@${SITE_CONFIG.domain}`
   const lanes =
     productKind === 'directory'
       ? [
